@@ -34,7 +34,7 @@ public class Welcome extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(false);
 		String user = (String) session.getAttribute("user");
 		out.println("Hello " + user);
 	}

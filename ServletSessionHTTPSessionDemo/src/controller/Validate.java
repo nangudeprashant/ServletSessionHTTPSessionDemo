@@ -10,6 +10,17 @@ import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Validate
+ * 
+ * Session Management API – Session Management API is built on top of above
+ * methods for session tracking. Some of the major disadvantages of all the
+ * above methods are: Most of the time we don’t want to only track the session,
+ * we have to store some data into the session that we can use in future
+ * requests. This will require a lot of effort if we try to implement this. All
+ * the above methods are not complete in themselves, all of them won’t work in a
+ * particular scenario. So we need a solution that can utilize these methods of
+ * session tracking to provide session management in all cases. That’s why we
+ * need Session Management API and J2EE Servlet technology comes with session
+ * management API that we can use.
  */
 @WebServlet("/Validate")
 public class Validate extends HttpServlet {
@@ -50,7 +61,7 @@ public class Validate extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", name);
 			response.sendRedirect("Welcome");
-		}else{
+		} else {
 			response.sendRedirect("Error.jsp");
 		}
 	}
