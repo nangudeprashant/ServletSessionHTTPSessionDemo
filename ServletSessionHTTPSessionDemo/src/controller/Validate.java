@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -60,7 +62,9 @@ public class Validate extends HttpServlet {
 			// creating a session
 			HttpSession session = request.getSession();
 			session.setAttribute("user", name);
-			response.sendRedirect("Welcome");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("Welcome");
+			dispatcher.forward(request, response);
+			//response.sendRedirect("Welcome");
 		} else {
 			response.sendRedirect("Error.jsp");
 		}
